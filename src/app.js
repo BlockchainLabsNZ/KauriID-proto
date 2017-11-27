@@ -46,10 +46,8 @@ const uportConnect = function() {
           },
           exp: new Date().getTime() + 30 * 24 * 60 * 60 * 1000, // 30 days from now
         })
-        uportConnected(nz_resident, credentials);
+        console.log("Attested new credentials");
       });
-    } else {
-      uportConnected(credentials['nz_resident'], credentials);
     }
   },
   function(error) {
