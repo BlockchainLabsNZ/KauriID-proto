@@ -33,7 +33,7 @@ const uportConnect = function() {
   .then(function(credentials) {
     // Do something
     console.log("Received credentials", credentials);
-    $('#credential-container').text(JSON.stringify(credentials));
+    $('#credential-container').text(JSON.stringify(credentials, null, 2));
     $('#myModal').modal('show');
     // Attest specific credentials
     if (typeof credentials['bundle'] == 'undefined') {
