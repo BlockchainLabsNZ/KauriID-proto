@@ -5,6 +5,7 @@ var $ = require("jquery");
 require("web3");
 require('../node_modules/uport-connect/dist/uport-connect.js');
 require('../node_modules/uport/dist/uport.js');
+require("bootstrap-loader");
 
 import { Connect, SimpleSigner } from 'uport-connect'
 
@@ -32,22 +33,22 @@ const uportConnect = function() {
   .then(function(credentials) {
     // Do something
     console.log("Received credentials", credentials);
+    $('#credential-container').text(JSON.stringify(credentials));
+    $('#myModal').modal('show');
     // Attest specific credentials
     if (typeof credentials['bundle'] == 'undefined') {
       $('#uportModal').modal('show');
-      $('#uportModal').on('click', 'button.save', function() {
-        uport.attestCredentials({
-          sub: credentials['address'],
-          claim: {
-            bundle: {
-              'test': 'yes',
-              'test2': 'no'
-            },
+      uport.attestCredentials({
+        sub: credentials['address'],
+        claim: {
+          bundle: {
+            'test': 'yes',
+            'test2': 'no'
           },
-          exp: new Date().getTime() + 30 * 24 * 60 * 60 * 1000, // 30 days from now
-        })
-        console.log("Attested new credentials");
+        },
+        exp: new Date().getTime() + 30 * 24 * 60 * 60 * 1000, // 30 days from now
       });
+      console.log("Attested new credentials");
     }
   },
   function(error) {
