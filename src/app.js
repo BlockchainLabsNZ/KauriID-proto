@@ -19,8 +19,8 @@ const uportConnect = function() {
     return false;
   }
   const uport = new Connect('KauriID Proto', {
-    clientId: '2p2CiTD7equhDyMEUDAcybGfw1qe1YXMSD1',
-    signer: SimpleSigner('24e52aca5a4059eeb9708bbb38c25705e9eb9a405289e649831362ddc92a76e2'),
+    clientId: '2onR9ixZ1Mfs5ihpdF7fXf8iHqHmuEvRSBH',
+    signer: SimpleSigner('504e290ad142acc555cd919ef201672baeb9cd0886d7962333b57515b43387f1'),
     network: 'rinkeby'
     //public key 0x040951f3c3f6919b3238768ad12fd24bff02b75d66c42632a377ff7f9553847dc6837e9e09625ad137b5fd6732331cd4ab9a4bd26d929a3e6a8170227975a0cdf8
   })
