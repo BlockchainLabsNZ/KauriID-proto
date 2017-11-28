@@ -18,7 +18,7 @@ const uportConnect = function() {
   if ($(this).hasClass('btn-success')) {
     return false;
   }
-  const uport = new Connect('Lab+ Prototype', {
+  const uport = new Connect('KauriID Proto', {
     clientId: '2p2CiTD7equhDyMEUDAcybGfw1qe1YXMSD1',
     signer: SimpleSigner('24e52aca5a4059eeb9708bbb38c25705e9eb9a405289e649831362ddc92a76e2'),
     network: 'rinkeby'
@@ -33,6 +33,7 @@ const uportConnect = function() {
   .then(function(credentials) {
     // Do something
     console.log("Received credentials", credentials);
+    $('#uport-status').text('Connected');
     $('#credential-container').text(JSON.stringify(credentials, null, 2));
     $('#myModal').modal('show');
     // Attest specific credentials
